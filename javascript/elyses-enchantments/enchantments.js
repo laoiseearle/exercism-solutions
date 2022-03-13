@@ -8,9 +8,7 @@
  *
  * @returns {number} the card
  */
-export function getItem(cards, position) {
-  throw new Error('Implement the getItem function');
-}
+export const getItem = (cards, position) => cards[position];
 
 /**
  * Exchange card with replacementCard at the 0-based position
@@ -21,9 +19,10 @@ export function getItem(cards, position) {
  *
  * @returns {number[]} the cards with the change applied
  */
-export function setItem(cards, position, replacementCard) {
-  throw new Error('Implement the setItem function');
-}
+export const setItem = (cards, position, replacementCard) => {
+  cards.splice(position, 1, replacementCard);
+  return cards;
+};
 
 /**
  * Insert newCard at the end of the cards array
@@ -33,9 +32,10 @@ export function setItem(cards, position, replacementCard) {
  *
  * @returns {number[]} the cards with the newCard applied
  */
-export function insertItemAtTop(cards, newCard) {
-  throw new Error('Implement the insertItemAtTop function');
-}
+export const insertItemAtTop = (cards, newCard) => {
+  cards.push(newCard);
+  return cards;
+};
 
 /**
  * Remove the card at the 0-based position
@@ -46,7 +46,8 @@ export function insertItemAtTop(cards, newCard) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItem(cards, position) {
-  throw new Error('Implement the removeItem function');
+  cards.splice(position, 1);
+  return cards;
 }
 
 /**
@@ -56,9 +57,10 @@ export function removeItem(cards, position) {
  *
  * @returns {number[]} the cards without the removed card
  */
-export function removeItemFromTop(cards) {
-  throw new Error('Implement the removeItemFromTop function');
-}
+export const removeItemFromTop = cards => {
+  cards.pop();
+  return cards;
+};
 
 /**
  * Insert newCard at beginning of the cards array
@@ -68,9 +70,10 @@ export function removeItemFromTop(cards) {
  *
  * @returns {number[]} the cards including the new card
  */
-export function insertItemAtBottom(cards, newCard) {
-  throw new Error('Implement the insertItemAtBottom function');
-}
+export const insertItemAtBottom = (cards, newCard) => {
+  cards.unshift(newCard);
+  return cards;
+};
 
 /**
  * Remove card from the beginning of the cards
@@ -79,9 +82,10 @@ export function insertItemAtBottom(cards, newCard) {
  *
  * @returns {number[]} the cards without the removed card
  */
-export function removeItemAtBottom(cards) {
-  throw new Error('Implement the removeItemAtBottom function');
-}
+export const removeItemAtBottom = cards => {
+  cards.shift();
+  return cards;
+};
 
 /**
  * Compare the number of cards with the given stackSize
@@ -91,6 +95,5 @@ export function removeItemAtBottom(cards) {
  *
  * @returns {boolean} true if there are exactly stackSize number of cards, false otherwise
  */
-export function checkSizeOfStack(cards, stackSize) {
-  throw new Error('Implement the checkSizeOfStack function');
-}
+export const checkSizeOfStack = (cards, stackSize) =>
+  cards.length === stackSize;
