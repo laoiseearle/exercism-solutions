@@ -10,9 +10,7 @@
  * @param {string} kind
  * @returns {boolean} whether a license is required
  */
-export function needsLicense(kind) {
-  throw new Error('Please implement the needsLicense function');
-}
+export const needsLicense = kind => kind === 'truck' || kind === 'car';
 
 /**
  * Helps choosing between two options by recommending the one that
@@ -22,9 +20,10 @@ export function needsLicense(kind) {
  * @param {string} option2
  * @returns {string} a sentence of advice which option to choose
  */
-export function chooseVehicle(option1, option2) {
-  throw new Error('Please implement the chooseVehicle function');
-}
+export const chooseVehicle = (option1, option2) => {
+  let sort = [option1, option2].sort();
+  return `${sort[0]} is clearly the better choice.`;
+};
 
 /**
  * Calculates an estimate for the price of a used vehicle in the dealership
@@ -35,5 +34,11 @@ export function chooseVehicle(option1, option2) {
  * @returns expected resell price in the dealership
  */
 export function calculateResellPrice(originalPrice, age) {
-  throw new Error('Please implement the calculateResellPrice function');
+  if (age < 3) {
+    return (80 / 100) * age;
+  } else if (age > 10) {
+    return (50 / 100) * age;
+  } else {
+    return (70 / 100) * age;
+  }
 }
